@@ -8,13 +8,12 @@ void main() {
     messeger: "Cargo do funcionario: estagiario, vendedor, supervisor",
   );
   final salarioBase = double.parse(
-    inputoutput(messeger: "digite o salario base"),
+    inputoutput(messeger: "digite o salario base do funcionario"),
   );
 
   final venda = double.parse(
     inputoutput(messeger: "Quanto foi vendido no mes?"),
   );
-
 
   switch (cargo) {
     case "estagiario":
