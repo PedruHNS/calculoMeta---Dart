@@ -1,6 +1,6 @@
 import 'dart:io';
 
-String inputoutput({required String messeger}) {
+String input({required String messeger}) {
   String? input;
   while (input == null) {
     print(messeger);
@@ -15,12 +15,12 @@ class Funcionario {
   double salarioBase;
   double venda;
 
-  Funcionario(
-    this.nome,
-    this.cargo,
-    this.salarioBase,
-    this.venda,
-  );
+  Funcionario({
+    required this.nome,
+    required this.cargo,
+    required this.salarioBase,
+    required this.venda,
+  });
 
   void metaEstagiario() {
     if (venda >= 15000.00) {
@@ -86,5 +86,28 @@ class Funcionario {
           "infelizmente você não bateu a meta\n"
           "suas vendas foram R\$$venda");
     }
+  }
+}
+
+void seletor() {
+  Funcionario pessoa = Funcionario(
+    nome: input(messeger: "digite o nome do Funcionário"),
+    cargo: input(
+        messeger: "Cargo do funcionario: estagiario, vendedor, supervisor"),
+    salarioBase:
+        double.parse(input(messeger: "digite o salario base do funcionario")),
+    venda: double.parse(input(messeger: "Quanto foi vendido no mes?")),
+  );
+
+  switch (pessoa.cargo) {
+    case "estagiario":
+      pessoa.metaEstagiario();
+      break;
+    case "vendedor":
+      pessoa.metaVendedor();
+      break;
+    case "supervisor":
+      pessoa.metaSupervisor();
+      break;
   }
 }
